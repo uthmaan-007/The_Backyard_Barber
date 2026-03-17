@@ -309,6 +309,7 @@ footer{background:var(--g100);border-top:1px solid var(--border);padding:52px 0 
       <li><a onclick="goTo('team')">Team</a></li>
       <li><a onclick="goTo('reviews')">Reviews</a></li>
       <li><a onclick="goTo('location')">Location</a></li>
+      <li><a onclick="goTo('faq')">FAQ</a></li>
     </ul>
     <button class="btn btn-o nav-book" onclick="goTo('booking')">Book Now</button>
     <button class="ham" id="ham"><span></span><span></span><span></span></button>
@@ -323,6 +324,7 @@ footer{background:var(--g100);border-top:1px solid var(--border);padding:52px 0 
   <a onclick="navTo('team')">Team</a>
   <a onclick="navTo('reviews')">Reviews</a>
   <a onclick="navTo('location')">Location</a>
+  <a onclick="navTo('faq')">FAQ</a>
   <a onclick="navTo('booking')" style="color:var(--g500)">Book Now</a>
 </div>
 
@@ -396,6 +398,25 @@ footer{background:var(--g100);border-top:1px solid var(--border);padding:52px 0 
       <div class="line c"></div>
     </div>
     <div class="team-grid fade-up" id="teamGrid"></div>
+  </div>
+</section>
+
+
+<!-- FROM THE OWNER -->
+<section id="owner" style="padding:88px 0;background:var(--black)">
+  <div class="container">
+    <div class="fade-up" style="max-width:720px;margin:0 auto;text-align:center">
+      <span class="tag">From the Owner</span>
+      <h2 class="sec-title">The Backyard Barber</h2>
+      <div class="line c"></div>
+      <p style="font-size:1rem;color:var(--g400);line-height:1.9;font-style:italic;margin-bottom:28px">
+        "We blend precision fades, clean trims, and sharp line-ups with a laid-back vibe that feels like home. Whether you're after a fresh everyday look or a statement style, we keep you crisp, confident, and camera-ready. Good energy, real conversations, and elite grooming — every visit, every time.
+      </p>
+      <p style="font-size:1rem;color:var(--g400);line-height:1.9;font-style:italic;margin-bottom:36px">
+        Stay sharp. Stay fresh. 💈🔥"
+      </p>
+      <div style="width:48px;height:1px;background:var(--border2);margin:0 auto"></div>
+    </div>
   </div>
 </section>
 
@@ -488,12 +509,128 @@ footer{background:var(--g100);border-top:1px solid var(--border);padding:52px 0 
       </div>
       <div class="fade-up">
         <div class="map-box">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3578.4!2d28.322!3d-26.177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sLakefield+Astroplex+Benoni!5e0!3m2!1sen!2sza!4v1" allowfullscreen loading="lazy"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3578.0!2d28.3!3d-26.18!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e951700143afd33%3A0x9c3519f6ce87de04!2sThe%20Backyard%20Barber%2C%20Lake%20Club%2C%20Lakefield%2C%20Benoni%2C%201501!5e0!3m2!1sen!2sza!4v1700000000000" allowfullscreen loading="lazy"></iframe>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+
+<!-- FAQ -->
+<section id="faq" style="padding:88px 0;background:var(--g100)">
+  <div class="container">
+    <div class="fade-up" style="text-align:center">
+      <span class="tag">FAQ</span>
+      <h2 class="sec-title">Frequently Asked Questions</h2>
+      <div class="line c"></div>
+    </div>
+    <div class="fade-up" style="max-width:720px;margin:0 auto" id="faqList">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Do you accept walk-ins?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">
+          Yes — walk-ins are welcome. However, booking in advance is recommended to guarantee your slot, especially on busy days. Keep an eye on the announcement banner at the top of the site — if walk-ins are unavailable on a specific day, it will say so there.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How far in advance should I book?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">
+          The earlier the better. Same-day bookings are welcome where slots are available. Book via WhatsApp or the form on this site and we'll confirm your time.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What payment methods do you accept?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">
+          We accept Cash and EFT. Please ensure payment is ready at the time of your appointment.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How long does a cut take?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">
+          Most cuts take between 30 to 45 minutes depending on the service. More detailed styles or add-ons like a beard trim may take slightly longer.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What is your cancellation policy?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">
+          We understand things come up — but please give us at least <strong>24 hours notice</strong> if you need to cancel. Cancellations made without 24 hours notice will incur a <strong>R50 fee</strong>.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Do you offer discounts or loyalty rewards?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">
+          Not at this stage. Stay tuned — any promotions or specials will be announced on this site and our Instagram.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Do you do home visits or mobile cuts?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">
+          No — all cuts are done in-shop at the Lake Club, Lakefield Astroplex, Benoni.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How do I book an appointment?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">
+          You can book via WhatsApp on <strong>+27 82 975 1531</strong>, through the booking form on this site, or by DMing us on Instagram <strong>@the_backyardbarber</strong>. We'll confirm your slot as soon as possible.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-q {
+  width: 100%; background: none; border: none; color: var(--white);
+  font-family: var(--fh); font-size: .88rem; font-weight: 600; letter-spacing: .06em;
+  text-align: left; padding: 20px 0; cursor: pointer; display: flex;
+  justify-content: space-between; align-items: center; gap: 16px;
+  transition: var(--tr);
+}
+.faq-q:hover { color: var(--g600); }
+.faq-arrow { font-size: 1.3rem; font-weight: 300; flex-shrink: 0; transition: var(--tr); color: var(--g500); }
+.faq-q.open .faq-arrow { transform: rotate(45deg); color: var(--white); }
+.faq-a {
+  font-size: .84rem; color: var(--g500); line-height: 1.8;
+  max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s ease;
+  padding: 0;
+}
+.faq-a.open { max-height: 300px; padding-bottom: 20px; }
+.faq-a strong { color: var(--white); }
+</style>
 
 <!-- FOOTER -->
 <footer>
@@ -518,7 +655,9 @@ footer{background:var(--g100);border-top:1px solid var(--border);padding:52px 0 
           <li><a onclick="goTo('team')">Our Team</a></li>
           <li><a onclick="goTo('reviews')">Reviews</a></li>
           <li><a onclick="goTo('booking')">Book Now</a></li>
+          <li><a onclick="goTo('faq')">FAQ</a></li>
           <li><a onclick="goTo('location')">Location</a></li>
+      <li><a onclick="goTo('faq')">FAQ</a></li>
         </ul>
       </div>
       <div class="fcol">
@@ -1334,6 +1473,16 @@ async function init() {
   await Promise.all([loadAnn(), loadSvc(), loadGal(), loadTeam(), loadRevs(), loadHrs()]);
 }
 init();
+
+// FAQ
+function toggleFaq(btn) {
+  const answer = btn.nextElementSibling;
+  const isOpen = btn.classList.contains('open');
+  // close all
+  document.querySelectorAll('.faq-q').forEach(b => { b.classList.remove('open'); b.nextElementSibling.classList.remove('open'); });
+  // open clicked if it was closed
+  if (!isOpen) { btn.classList.add('open'); answer.classList.add('open'); }
+}
 </script>
 </body>
-</html>
+</html> 
