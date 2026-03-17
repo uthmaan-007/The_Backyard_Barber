@@ -1239,15 +1239,17 @@ document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
 // ═══════════════════════════════
 
 async function loadAnn() {
-  const data = await sbGet('announcement', 'id=eq.1');
-  if (data && data[0]) {
-    const d = data[0];
-    const ann = document.getElementById('ann');
-    const nav = document.getElementById('nav');
-    if (!d.enabled) { ann.classList.add('hide'); nav.style.top='0px'; nav.classList.add('no-ann'); }
-    else { ann.classList.remove('hide'); nav.classList.remove('no-ann'); nav.style.top='36px'; document.getElementById('annTxt').textContent = d.text; }
-    return d;
-  }
+  try {
+    const data = await sbGet('announcement', 'id=eq.1');
+    if (data && data[0]) {
+      const d = data[0];
+      const ann = document.getElementById('ann');
+      const nav = document.getElementById('nav');
+      if (!d.enabled) { ann.classList.add('hide'); nav.style.top='0px'; nav.classList.add('no-ann'); }
+      else { ann.classList.remove('hide'); nav.classList.remove('no-ann'); nav.style.top='36px'; document.getElementById('annTxt').textContent = d.text; }
+      return d;
+    }
+  } catch(e) {}
   applyAnn();
 }
 
@@ -1330,8 +1332,31 @@ async function loadHrs() {
 async function saveAnn() {
   const on = document.getElementById('annOn').checked;
   const text = document.getElementById('annMsg').value;
-  await sbUpsert('announcement', { id: 1, text, enabled: on });
-  // update banner live
+  // Try PATCH first, if fails try POST
+  const patchRes = await fetch(`${SB_URL}/rest/v1/announcement?id=eq.1`, {
+    method: 'PATCH',
+    headers: {
+      'apikey': SB_KEY,
+      'Authorization': 'Bearer ' + SB_KEY,
+      'Content-Type': 'application/json',
+      'Prefer': 'return=representation'
+    },
+    body: JSON.stringify({ text, enabled: on })
+  });
+  if (!patchRes.ok) {
+    // Row doesn't exist, insert it
+    await fetch(`${SB_URL}/rest/v1/announcement`, {
+      method: 'POST',
+      headers: {
+        'apikey': SB_KEY,
+        'Authorization': 'Bearer ' + SB_KEY,
+        'Content-Type': 'application/json',
+        'Prefer': 'resolution=merge-duplicates'
+      },
+      body: JSON.stringify({ id: 1, text, enabled: on })
+    });
+  }
+  // Update banner live
   const ann = document.getElementById('ann');
   const nav = document.getElementById('nav');
   if (!on) { ann.classList.add('hide'); nav.style.top='0px'; nav.classList.add('no-ann'); }
@@ -1485,4 +1510,4 @@ function toggleFaq(btn) {
 }
 </script>
 </body>
-</html> 
+        </html>
